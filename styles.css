@@ -764,3 +764,74 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* ABOUT PAGE */
+
+.about-page {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.about-page h1 {
+  font-size: clamp(38px, 6vw, 58px);
+  margin: 25px 0 12px;
+}
+
+.about-page h1 span,
+.about-story h2 span {
+  color: var(--gold);
+}
+
+.about-role {
+  color: var(--gold);
+  line-height: 1.8;
+  margin-bottom: 50px;
+}
+
+.about-story {
+  max-width: 750px;
+  margin: 0 auto 45px;
+  text-align: left;
+}
+
+.about-story h2 {
+  font-size: 30px;
+  margin: 35px 0 18px;
+}
+
+.about-story p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.about-page .gold-button {
+  display: inline-block;
+  margin-bottom: 35px;
+}
+
+@media (max-width: 700px) {
+  .about-page {
+    padding-top: 55px;
+  }
+
+  .about-role {
+    font-size: 14px;
+    padding: 0 12px;
+  }
+
+  .about-story {
+    padding: 0 8px;
+  }
+
+  .about-story h2 {
+    font-size: 25px;
+  }
+
+  .about-story p {
+    font-size: 15px;
+  }
+}
