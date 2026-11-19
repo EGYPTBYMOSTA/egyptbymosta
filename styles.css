@@ -895,3 +895,39 @@ body[data-page="stories"] .header {
   transform: translateY(-3px);
   box-shadow: 0 5px 20px rgba(212, 175, 99, 0.3);
 }
+/* EgyptByMosta - Premium Egyptian Identity */
+
+body {
+  background-color: #090909 !important;
+  color: #EDE4D2;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(212,175,99,0.12), transparent 35%),
+    radial-gradient(circle at 85% 75%, rgba(23,75,73,0.16), transparent 35%);
+}
+
+h1, h2, h3 {
+  color: #D4AF63;
+}
+
+.section {
+  background-color: transparent;
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #B58A3B, #E4C77E);
+  color: #090909 !important;
+  border: 1px solid #D4AF63;
+}
+
+.gold-button:hover {
+  box-shadow: 0 5px 20px rgba(212,175,99,0.25);
+}
