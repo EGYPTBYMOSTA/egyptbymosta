@@ -1023,9 +1023,9 @@ body::before {
   right: 3%;
   transform: translateY(-50%);
   font-size: clamp(200px, 30vw, 400px);
-  color: rgba(212, 175, 99, 0.12);
+  color: rgba(212, 175, 99, 0.18);
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
   line-height: 1;
 }
 
