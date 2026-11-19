@@ -148,3 +148,84 @@ const loadMoreButton = document.getElementById("load-more");
 if (loadMoreButton) {
   loadMoreButton.addEventListener("click", loadMorePhotos);
 }
+
+// Image Lightbox
+let lightboxIndex = 0;
+
+const lightbox = document.createElement("div");
+lightbox.id = "image-lightbox";
+
+lightbox.innerHTML = `
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+  <img class="lightbox-image" src="" alt="Egypt By Mosta">
+  <button class="lightbox-next" aria-label="Next">&#10095;</button>
+`;
+
+Object.assign(lightbox.style, {
+  display: "none",
+  position: "fixed",
+  inset: "0",
+  background: "rgba(0,0,0,0.95)",
+  zIndex: "100000",
+  alignItems: "center",
+  justifyContent: "center"
+});
+
+document.body.appendChild(lightbox);
+
+const lightboxImage = lightbox.querySelector(".lightbox-image");
+
+Object.assign(lightboxImage.style, {
+  maxWidth: "90%",
+  maxHeight: "85%",
+  objectFit: "contain"
+});
+
+function showLightbox(index) {
+  if (!allPhotos.length) return;
+
+  lightboxIndex = (index + allPhotos.length) % allPhotos.length;
+
+  lightboxImage.src = allPhotos[lightboxIndex].image_url;
+  lightboxImage.alt = allPhotos[lightboxIndex].caption || "Egypt By Mosta";
+
+  lightbox.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+function changeLightbox(direction) {
+  showLightbox(lightboxIndex + direction);
+}
+
+photosContainer?.addEventListener("click", (event) => {
+  const clickedImage = event.target.closest(".photo-card img");
+  if (!clickedImage) return;
+
+  const index = allPhotos.findIndex(photo =>
+    clickedImage.src.startsWith(photo.image_url)
+  );
+
+  if (index !== -1) showLightbox(index);
+});
+
+lightbox.querySelector(".lightbox-close").onclick = closeLightbox;
+lightbox.querySelector(".lightbox-prev").onclick = () => changeLightbox(-1);
+lightbox.querySelector(".lightbox-next").onclick = () => changeLightbox(1);
+
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (lightbox.style.display !== "flex") return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowRight") changeLightbox(1);
+  if (event.key === "ArrowLeft") changeLightbox(-1);
+});
