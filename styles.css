@@ -500,3 +500,51 @@ footer {
     width: 100%;
   }
 }
+/* Clean premium homepage hero */
+.hero {
+  min-height: 560px;
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 76px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+.hero .intro {
+  max-width: 490px;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.hero .eyebrow {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 480px;
+    padding: 75px 7%;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero .intro {
+    font-size: 14px;
+  }
+}
