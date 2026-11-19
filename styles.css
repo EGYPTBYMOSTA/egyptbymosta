@@ -1135,3 +1135,32 @@ a.pillar-card h3,
 a.pillar-card p {
   text-decoration: none;
 }
+
+/* EgyptByMosta - Unified Egyptian Background */
+
+body {
+  background-color: #090909 !important;
+  background-image:
+    linear-gradient(
+      rgba(9, 9, 9, 0.68),
+      rgba(9, 9, 9, 0.82)
+    ),
+    url("egypt-background.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+body > header,
+body > main,
+body > footer {
+  background-color: transparent !important;
+}
+
+.hero,
+.section,
+.content-pillars {
+  background-color: transparent !important;
+  background-image: none !important;
+}
