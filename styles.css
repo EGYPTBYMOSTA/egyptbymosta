@@ -223,3 +223,12 @@ footer {
     text-align: center;
   }
 }
+/* Show complete Facebook photos on all screens */
+.photo-card img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 500px;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #090909;
+}
