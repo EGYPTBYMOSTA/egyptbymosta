@@ -28,7 +28,7 @@ async function loadPhotos() {
       card.className = "photo-card";
 
       const image = document.createElement("img");
-      image.src = photo.image_url;
+      image.src = photo.image_url + (photo.image_url.includes("?") ? "&" : "?") + "v=" + Date.now();
       image.alt = photo.caption || "Egypt By Mosta photo";
       image.loading = "lazy";
 
