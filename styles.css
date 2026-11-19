@@ -324,4 +324,36 @@ footer {
   object-position: center;
   display: block;
 }
+}/* Header social media */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-social a {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.header-social a:hover {
+  background: var(--gold);
+  color: #090909;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 700px) {
+  .header-social {
+    justify-content: center;
+    margin-top: 8px;
+  }
 }
