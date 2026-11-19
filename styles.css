@@ -986,3 +986,26 @@ a:hover {
   vertical-align: middle;
   text-shadow: 0 0 12px rgba(212, 175, 99, 0.3);
 }
+/* Subtle Egyptian Heritage Texture */
+
+body {
+  background-image:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(212, 175, 99, 0.045) 0,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(23, 75, 73, 0.10) 0,
+      transparent 30%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 48px,
+      rgba(212, 175, 99, 0.018) 49px,
+      transparent 50px
+    );
+  background-color: #090909 !important;
+}
