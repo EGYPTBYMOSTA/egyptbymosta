@@ -153,9 +153,11 @@ nav a:hover {
 .photo-card img {
   display: block;
   width: 100%;
-  height: 260px;
-  object-fit: cover;
-  transition: transform .4s;
+  height: auto;
+  max-height: none;
+  object-fit: unset;
+  object-position: center;
+}
 }
 
 .photo-card:hover img {
