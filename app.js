@@ -15,7 +15,22 @@ async function loadPhotos() {
 
     const data = await response.json();
     const photos = data.photos || [];
+const collage = document.getElementById("hero-collage");
 
+if (collage) {
+  collage.innerHTML = "";
+
+  photos.slice(0, 3).forEach((photo) => {
+    if (!photo.image_url) return;
+
+    const img = document.createElement("img");
+    img.src = photo.image_url + (photo.image_url.includes("?") ? "&" : "?") + "v=" + Date.now();
+    img.alt = "Egypt By Mosta";
+    img.loading = "eager";
+
+    collage.appendChild(img);
+  });
+}
     photosContainer.innerHTML = "";
 
     if (photos.length === 0) {
