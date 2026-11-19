@@ -467,3 +467,36 @@ footer {
     justify-content: center;
   }
 }
+/* Fix header layout */
+.header {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header-social {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.header-social a {
+  flex: 0 0 36px;
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: row !important;
+    justify-content: center;
+  }
+
+  .header-social {
+    width: 100%;
+  }
+}
