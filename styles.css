@@ -1122,3 +1122,16 @@ body > footer {
     padding: 65px 6%;
   }
 }
+/* Clickable Pillar Cards */
+
+a.pillar-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.pillar-card h3,
+a.pillar-card p {
+  text-decoration: none;
+}
