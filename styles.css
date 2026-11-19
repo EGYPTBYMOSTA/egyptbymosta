@@ -835,3 +835,17 @@ footer {
     font-size: 15px;
   }
 }
+/* Egyptian Heritage Background */
+body {
+  background-color: #090909;
+  background-image:
+    linear-gradient(
+      rgba(9, 9, 9, 0.78),
+      rgba(9, 9, 9, 0.88)
+    ),
+    url("egypt-background.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
