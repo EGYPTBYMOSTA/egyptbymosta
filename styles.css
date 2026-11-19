@@ -1009,3 +1009,22 @@ body {
     );
   background-color: #090909 !important;
 }
+/* Eye of Horus Watermark */
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "𓂀";
+  position: fixed;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  font-size: clamp(180px, 28vw, 380px);
+  color: rgba(212, 175, 99, 0.055);
+  pointer-events: none;
+  z-index: -1;
+  line-height: 1;
+}
