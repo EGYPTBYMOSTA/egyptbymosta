@@ -324,3 +324,12 @@ footer {
   object-position: center;
   display: block;
 }
+.profile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  visibility: visible;
+  filter: none;
+}
