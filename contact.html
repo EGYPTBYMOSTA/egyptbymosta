@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Egypt By Mosta</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a class="logo" href="index.html">EGYPT <span>BY MOSTA</span></a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="stories.html">Stories</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-social">
+      <a href="https://www.facebook.com/egyptbymostahassan" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/egyptbymosta" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@egyptbymosta" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@EgyptByMosta" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </header>
+
+  <section class="section contact-page">
+
+    <p class="eyebrow">LET'S CONNECT</p>
+    <h1>Get in <span>Touch</span></h1>
+
+    <p class="intro">
+      Have a question, a travel inquiry, or a collaboration idea?
+      I'd love to hear from you.
+    </p>
+
+    <div class="contact-methods">
+
+      <a href="tel:+201004280294" class="contact-card">
+        <i class="fa-solid fa-phone"></i>
+        <h3>Call Me</h3>
+        <p>+20 100 428 0294</p>
+      </a>
+
+      <a href="https://wa.me/201004280294" target="_blank" class="contact-card">
+        <i class="fa-brands fa-whatsapp"></i>
+        <h3>WhatsApp</h3>
+        <p>Chat with me directly</p>
+      </a>
+
+      <a href="https://www.facebook.com/egyptbymostahassan" target="_blank" class="contact-card">
+        <i class="fa-brands fa-facebook"></i>
+        <h3>Facebook</h3>
+        <p>Follow my journey</p>
+      </a>
+
+      <a href="https://www.instagram.com/egyptbymosta" target="_blank" class="contact-card">
+        <i class="fa-brands fa-instagram"></i>
+        <h3>Instagram</h3>
+        <p>Discover Egypt with me</p>
+      </a>
+
+      <a href="https://www.tiktok.com/@egyptbymosta" target="_blank" class="contact-card">
+        <i class="fa-brands fa-tiktok"></i>
+        <h3>TikTok</h3>
+        <p>Watch my latest videos</p>
+      </a>
+
+      <a href="https://www.youtube.com/@EgyptByMosta" target="_blank" class="contact-card">
+        <i class="fa-brands fa-youtube"></i>
+        <h3>YouTube</h3>
+        <p>Watch more experiences</p>
+      </a>
+
+    </div>
+
+    <div class="contact-form-section">
+
+      <p class="eyebrow">SEND ME A MESSAGE</p>
+      <h2>Have a <span>Question?</span></h2>
+
+      <form id="contact-form">
+
+        <input
+          type="text"
+          id="contact-name"
+          placeholder="Your Name"
+          required
+        >
+
+        <input
+          type="email"
+          id="contact-email"
+          placeholder="Your Email"
+          required
+        >
+
+        <textarea
+          id="contact-message"
+          rows="6"
+          placeholder="Write your question or message..."
+          required
+        ></textarea>
+
+        <button type="submit" class="gold-button">
+          <i class="fa-brands fa-whatsapp"></i>
+          Send Message
+        </button>
+
+      </form>
+
+      <p class="form-note">
+        Your message will be sent through WhatsApp.
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Egypt By Mosta. Made with love in Egypt.</p>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/egyptbymostahassan" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/egyptbymosta" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@egyptbymosta" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@EgyptByMosta" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+
+    <p>EGYPT 🇪🇬</p>
+  </footer>
+
+  <a class="floating-whatsapp"
+     href="https://wa.me/201004280294"
+     target="_blank"
+     rel="noopener"
+     aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("contact-name").value.trim();
+      const email = document.getElementById("contact-email").value.trim();
+      const message = document.getElementById("contact-message").value.trim();
+
+      const text = `Hello Mosta!\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+      const whatsappURL = "https://wa.me/201004280294?text=" + encodeURIComponent(text);
+
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
+
+</body>
+</html>
