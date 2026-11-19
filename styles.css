@@ -1020,11 +1020,18 @@ body::before {
   content: "𓂀";
   position: fixed;
   top: 50%;
-  right: 4%;
+  right: 3%;
   transform: translateY(-50%);
-  font-size: clamp(180px, 28vw, 380px);
-  color: rgba(212, 175, 99, 0.055);
+  font-size: clamp(200px, 30vw, 400px);
+  color: rgba(212, 175, 99, 0.12);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   line-height: 1;
+}
+
+body > header,
+body > main,
+body > footer {
+  position: relative;
+  z-index: 1;
 }
