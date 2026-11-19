@@ -1038,3 +1038,87 @@ body > footer {
   position: relative;
   z-index: 1;
 }
+/* EgyptByMosta - Content Pillars */
+
+.content-pillars {
+  padding: 90px 8%;
+  text-align: center;
+  background: transparent !important;
+}
+
+.content-pillars .eyebrow {
+  color: #D4AF63;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.content-pillars h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 15px;
+}
+
+.pillars-intro {
+  color: #aaa39a;
+  max-width: 650px;
+  margin: 0 auto 45px;
+  line-height: 1.8;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.pillar-card {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 30, 30, 0.95),
+    rgba(13, 13, 13, 0.95)
+  );
+  border: 1px solid rgba(212, 175, 99, 0.25);
+  padding: 35px 22px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-7px);
+  border-color: #D4AF63;
+  box-shadow: 0 12px 30px rgba(212, 175, 99, 0.10);
+}
+
+.pillar-icon {
+  display: block;
+  color: #D4AF63;
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.pillar-card h3 {
+  color: #E4C77E;
+  font-size: 19px;
+  margin-bottom: 14px;
+}
+
+.pillar-card p {
+  color: #aaa39a;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-pillars {
+    padding: 65px 6%;
+  }
+}
