@@ -1,9 +1,59 @@
+
 const FEED_URL = "https://flat-violet-3772egypt-by-mosta-photos.mostaa-hassan.workers.dev/";
 
 const photosContainer = document.getElementById("photos");
 const statusMessage = document.getElementById("feed-status");
+const isStoriesPage = document.body.dataset.page === "stories";
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const year = document.getElementById("year");
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+
+let allPhotos = [];
+let currentIndex = 0;
+
+function renderPhotos(photos) {
+  photosContainer.innerHTML = "";
+
+  photos.forEach((photo) => {
+    if (!photo.image_url) return;
+
+    const card = document.createElement("article");
+    card.className = "photo-card";
+
+    const image = document.createElement("img");
+    image.src = photo.image_url +
+      (photo.image_url.includes("?") ? "&" : "?") +
+      "v=" + Date.now();
+
+    image.alt = photo.caption || "Egypt By Mosta photo";
+    image.loading = "lazy";
+
+    const caption = document.createElement("p");
+    caption.textContent = photo.caption || "A moment from Egypt.";
+
+    card.appendChild(image);
+    card.appendChild(caption);
+    photosContainer.appendChild(card);
+  });
+}
+
+function updateHomePhotos() {
+  if (!allPhotos.length) return;
+
+  const visiblePhotos = [];
+
+  for (let i = 0; i < Math.min(3, allPhotos.length); i++) {
+    visiblePhotos.push(allPhotos[(currentIndex + i) % allPhotos.length]);
+  }
+
+  renderPhotos(visiblePhotos);
+
+  if (allPhotos.length > 3) {
+    currentIndex = (currentIndex + 1) % allPhotos.length;
+  }
+}
 
 async function loadPhotos() {
   try {
@@ -14,50 +64,53 @@ async function loadPhotos() {
     }
 
     const data = await response.json();
-    const photos = data.photos || [];
-const collage = document.getElementById("hero-collage");
+    allPhotos = data.photos || [];
 
-if (collage) {
-  collage.innerHTML = "";
+    const collage = document.getElementById("hero-collage");
 
-  photos.slice(0, 3).forEach((photo) => {
-    if (!photo.image_url) return;
+    if (collage) {
+      collage.innerHTML = "";
 
-    const img = document.createElement("img");
-    img.src = photo.image_url + (photo.image_url.includes("?") ? "&" : "?") + "v=" + Date.now();
-    img.alt = "Egypt By Mosta";
-    img.loading = "eager";
+      allPhotos.slice(0, 3).forEach((photo) => {
+        if (!photo.image_url) return;
 
-    collage.appendChild(img);
-  });
-}
-    photosContainer.innerHTML = "";
+        const img = document.createElement("img");
+        img.src = photo.image_url +
+          (photo.image_url.includes("?") ? "&" : "?") +
+          "v=" + Date.now();
 
-    if (photos.length === 0) {
+        img.alt = "Egypt By Mosta";
+        img.loading = "eager";
+        collage.appendChild(img);
+      });
+    }
+
+    if (!allPhotos.length) {
       photosContainer.innerHTML = "<p>No photos available yet.</p>";
       return;
     }
 
-    photos.forEach((photo) => {
-      const card = document.createElement("article");
-      card.className = "photo-card";
+    if (isStoriesPage) {
+      renderPhotos(allPhotos);
+    } else {
+      updateHomePhotos();
 
-      const image = document.createElement("img");
-      image.src = photo.image_url + (photo.image_url.includes("?") ? "&" : "?") + "v=" + Date.now();
-      image.alt = photo.caption || "Egypt By Mosta photo";
-      image.loading = "lazy";
+      if (allPhotos.length > 3) {
+        setInterval(updateHomePhotos, 8000);
+      }
+    }
 
-      const caption = document.createElement("p");
-      caption.textContent = photo.caption || "A moment from Egypt.";
-
-      card.appendChild(image);
-      card.appendChild(caption);
-      photosContainer.appendChild(card);
-    });
   } catch (error) {
-    photosContainer.innerHTML = "<p>Stories are temporarily unavailable. Please visit our Facebook page.</p>";
-    statusMessage.textContent = "Follow Egypt By Mosta on Facebook for the latest updates.";
+    photosContainer.innerHTML =
+      "<p>Stories are temporarily unavailable. Please visit our Facebook page.</p>";
+
+    if (statusMessage) {
+      statusMessage.textContent =
+        "Follow Egypt By Mosta on Facebook for the latest updates.";
+    }
   }
 }
 
-loadPhotos();
+if (photosContainer) {
+  loadPhotos();
+}
