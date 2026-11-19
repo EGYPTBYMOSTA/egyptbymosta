@@ -931,3 +931,48 @@ h1, h2, h3 {
 .gold-button:hover {
   box-shadow: 0 5px 20px rgba(212,175,99,0.25);
 }
+/* Egyptian Gold Signature */
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #D4AF63,
+    #EDE4D2,
+    #D4AF63,
+    transparent
+  );
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.footer {
+  border-top: 1px solid rgba(212, 175, 99, 0.35);
+  position: relative;
+}
+
+.section {
+  position: relative;
+}
+
+.section h2 {
+  letter-spacing: 1px;
+}
+
+.section h2 span {
+  color: #D4AF63;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #E4C77E;
+}
