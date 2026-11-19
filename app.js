@@ -12,31 +12,35 @@ if (year) {
 
 let allPhotos = [];
 let currentIndex = 0;
+let displayedCount = 0;
+
+const PAGE_SIZE = 9;
+
+function renderPhoto(photo) {
+  if (!photo.image_url) return;
+
+  const card = document.createElement("article");
+  card.className = "photo-card";
+
+  const image = document.createElement("img");
+  image.src = photo.image_url +
+    (photo.image_url.includes("?") ? "&" : "?") +
+    "v=" + Date.now();
+
+  image.alt = photo.caption || "Egypt By Mosta photo";
+  image.loading = "lazy";
+
+  const caption = document.createElement("p");
+  caption.textContent = photo.caption || "A moment from Egypt.";
+
+  card.appendChild(image);
+  card.appendChild(caption);
+  photosContainer.appendChild(card);
+}
 
 function renderPhotos(photos) {
   photosContainer.innerHTML = "";
-
-  photos.forEach((photo) => {
-    if (!photo.image_url) return;
-
-    const card = document.createElement("article");
-    card.className = "photo-card";
-
-    const image = document.createElement("img");
-    image.src = photo.image_url +
-      (photo.image_url.includes("?") ? "&" : "?") +
-      "v=" + Date.now();
-
-    image.alt = photo.caption || "Egypt By Mosta photo";
-    image.loading = "lazy";
-
-    const caption = document.createElement("p");
-    caption.textContent = photo.caption || "A moment from Egypt.";
-
-    card.appendChild(image);
-    card.appendChild(caption);
-    photosContainer.appendChild(card);
-  });
+  photos.forEach(renderPhoto);
 }
 
 function updateHomePhotos() {
@@ -52,6 +56,22 @@ function updateHomePhotos() {
 
   if (allPhotos.length > 3) {
     currentIndex = (currentIndex + 1) % allPhotos.length;
+  }
+}
+
+function loadMorePhotos() {
+  const nextPhotos = allPhotos.slice(
+    displayedCount,
+    displayedCount + PAGE_SIZE
+  );
+
+  nextPhotos.forEach(renderPhoto);
+  displayedCount += nextPhotos.length;
+
+  const button = document.getElementById("load-more");
+
+  if (button && displayedCount >= allPhotos.length) {
+    button.style.display = "none";
   }
 }
 
@@ -91,7 +111,15 @@ async function loadPhotos() {
     }
 
     if (isStoriesPage) {
-      renderPhotos(allPhotos);
+      photosContainer.innerHTML = "";
+      displayedCount = 0;
+      loadMorePhotos();
+
+      const button = document.getElementById("load-more");
+
+      if (button && displayedCount < allPhotos.length) {
+        button.style.display = "inline-block";
+      }
     } else {
       updateHomePhotos();
 
@@ -113,4 +141,10 @@ async function loadPhotos() {
 
 if (photosContainer) {
   loadPhotos();
+}
+
+const loadMoreButton = document.getElementById("load-more");
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener("click", loadMorePhotos);
 }
