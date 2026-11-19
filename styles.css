@@ -849,3 +849,14 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+/* Stories page background fix */
+body[data-page="stories"] {
+  background-color: transparent;
+}
+
+body[data-page="stories"] main,
+body[data-page="stories"] .section,
+body[data-page="stories"] .stories {
+  background-color: transparent !important;
+  background-image: none !important;
+}
