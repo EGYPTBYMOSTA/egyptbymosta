@@ -64,7 +64,7 @@ nav a:hover {
   color: var(--gold);
 }
 
-.hero {
+..hero {
   min-height: 620px;
   padding: 130px 8% 110px;
   display: flex;
@@ -72,8 +72,11 @@ nav a:hover {
   align-items: flex-start;
   justify-content: center;
   background:
-    linear-gradient(90deg, rgba(0,0,0,.96), rgba(0,0,0,.55)),
-    radial-gradient(ellipse at 80% 50%, #49371b 0%, #17130d 35%, #090909 75%);
+    radial-gradient(
+      ellipse at 80% 50%,
+      rgba(73, 55, 27, 0.18),
+      transparent 65%
+    );
 }
 
 .eyebrow {
