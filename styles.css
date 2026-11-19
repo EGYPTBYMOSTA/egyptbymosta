@@ -552,3 +552,71 @@ footer {
   font-size: 34px;
   color: white;
 }
+
+/* Premium Image Lightbox */
+
+#image-lightbox button {
+  position: absolute;
+  background: rgba(212, 175, 99, 0.15);
+  color: #d4af63;
+  border: 1px solid #d4af63;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+#image-lightbox button:hover {
+  background: #d4af63;
+  color: #090909;
+}
+
+#image-lightbox .lightbox-close {
+  top: 25px;
+  right: 25px;
+  font-size: 32px;
+}
+
+#image-lightbox .lightbox-prev {
+  left: 25px;
+}
+
+#image-lightbox .lightbox-next {
+  right: 25px;
+}
+
+#image-lightbox .lightbox-image {
+  border: 1px solid rgba(212, 175, 99, 0.4);
+  border-radius: 6px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  #image-lightbox button {
+    width: 40px;
+    height: 40px;
+    font-size: 21px;
+  }
+
+  #image-lightbox .lightbox-close {
+    top: 15px;
+    right: 15px;
+  }
+
+  #image-lightbox .lightbox-prev {
+    left: 10px;
+  }
+
+  #image-lightbox .lightbox-next {
+    right: 10px;
+  }
+
+  #image-lightbox .lightbox-image {
+    max-width: 82%;
+  }
+}
