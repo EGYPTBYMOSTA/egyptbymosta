@@ -211,7 +211,11 @@ footer {
   }
 
   .photo-card img {
-    height: 250px;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    background: #090909;
+  }
   }
 
   footer {
