@@ -389,3 +389,36 @@ footer {
     bottom: 18px;
   }
 }
+/* Footer social media */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footer-social a {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.footer-social a:hover {
+  background: var(--gold);
+  color: #090909;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 700px) {
+  footer {
+    align-items: center;
+  }
+}
