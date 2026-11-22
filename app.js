@@ -106,9 +106,11 @@ async function loadPhotos() {
     }
 
     if (!allPhotos.length) {
-      photosContainer.innerHTML = "<p>No photos available yet.</p>";
-      return;
-    }
+  if (photosContainer) {
+    photosContainer.innerHTML = "<p>No photos available yet.</p>";
+  }
+  return;
+}
 
     if (isStoriesPage) {
       photosContainer.innerHTML = "";
