@@ -1738,3 +1738,38 @@ body > footer {
     grid-template-columns: 1fr !important;
   }
 }
+/* Travel page - force four destination columns */
+
+.travel-destinations {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
+.travel-destinations > .pillar-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.travel-destinations > .pillar-card img {
+  width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 900px) {
+  .travel-destinations {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .travel-destinations {
+    grid-template-columns: 1fr !important;
+  }
+}
