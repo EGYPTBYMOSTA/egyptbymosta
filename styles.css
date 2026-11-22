@@ -1368,3 +1368,68 @@ body > footer {
     height: 260px;
   }
 }
+
+/* EgyptByMosta - Hero Section Refinement */
+
+.hero {
+  min-height: 680px;
+  padding: 140px 8% 120px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-content {
+  max-width: 720px;
+  position: relative;
+  z-index: 3;
+}
+
+.hero .eyebrow {
+  color: #D4AF63;
+  font-size: 13px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1.12;
+  margin-bottom: 25px;
+  color: #F5F0E7;
+}
+
+.hero h1 span {
+  color: #D4AF63;
+}
+
+.hero .intro {
+  max-width: 580px;
+  color: #E5DED1;
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+
+.hero .gold-button {
+  display: inline-block;
+  padding: 15px 32px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 580px;
+    padding: 110px 7% 90px;
+  }
+
+  .hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+  }
+
+  .hero .intro {
+    font-size: 15px;
+  }
+}
