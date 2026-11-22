@@ -1773,3 +1773,48 @@ body > footer {
     grid-template-columns: 1fr !important;
   }
 }
+/* EgyptByMosta - Travel Destination Cards Design */
+
+.travel-destinations > .pillar-card {
+  background: rgba(15, 15, 15, 0.96) !important;
+  border: 1px solid rgba(212, 175, 99, 0.3) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  padding: 0 0 24px !important;
+  transition: all 0.3s ease;
+}
+
+.travel-destinations > .pillar-card img {
+  width: 100% !important;
+  height: 190px !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 0 20px !important;
+}
+
+.travel-destinations > .pillar-card .pillar-icon {
+  color: #D4AF63;
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+
+.travel-destinations > .pillar-card h3 {
+  color: #E4C77E !important;
+  font-size: 18px;
+  margin: 0 12px 12px !important;
+}
+
+.travel-destinations > .pillar-card p {
+  color: #aaa39a !important;
+  font-size: 13px;
+  line-height: 1.8;
+  padding: 0 16px;
+  margin: 0 !important;
+}
+
+.travel-destinations > .pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: #D4AF63 !important;
+  box-shadow: 0 12px 30px rgba(212, 175, 99, 0.15);
+}
