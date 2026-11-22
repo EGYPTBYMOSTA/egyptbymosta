@@ -1433,3 +1433,95 @@ body > footer {
     font-size: 15px;
   }
 }
+
+/* EgyptByMosta - About Section Premium Design */
+
+.about.section {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 65px 35px;
+  text-align: center;
+  background: rgba(9, 9, 9, 0.78) !important;
+  border: 1px solid rgba(212, 175, 99, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+.about .profile-photo {
+  width: 145px;
+  height: 145px;
+  margin: 0 auto 28px;
+  padding: 4px;
+  border: 2px solid #D4AF63;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(212, 175, 99, 0.2);
+}
+
+.about .profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about h2 {
+  color: #F5F0E7;
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 14px;
+}
+
+.about h2 span {
+  color: #D4AF63;
+}
+
+.about .about-role {
+  color: #D4AF63;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.about > p:not(.eyebrow):not(.about-role) {
+  max-width: 720px;
+  margin: 0 auto 18px;
+  color: #E5DED1;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.about .social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin: 32px 0;
+}
+
+.about .social-links a {
+  color: #E4C77E;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.about .social-links a:hover {
+  color: #FFFFFF;
+}
+
+@media (max-width: 600px) {
+  .about.section {
+    margin: 45px 15px;
+    padding: 45px 20px;
+  }
+
+  .about .profile-photo {
+    width: 125px;
+    height: 125px;
+  }
+
+  .about .social-links {
+    gap: 16px;
+  }
+}
