@@ -1711,3 +1711,30 @@ body > footer {
     height: 220px !important;
   }
 }
+/* Travel Destinations Grid Fix */
+
+.travel-destinations {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 25px !important;
+  width: 100% !important;
+}
+
+.travel-destinations .pillar-card {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.travel-destinations .pillar-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 230px !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 600px) {
+  .travel-destinations {
+    grid-template-columns: 1fr !important;
+  }
+}
