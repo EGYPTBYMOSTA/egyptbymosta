@@ -134,34 +134,24 @@ async function loadPhotos() {
   if (photosContainer) {
     photosContainer.innerHTML =
       "<p>Stories are temporarily unavailable. Please visit our Facebook page.</p>";
-  }
+    } catch (error) {
+    if (photosContainer) {
+      photosContainer.innerHTML =
+        "<p>Stories are temporarily unavailable. Please visit our Facebook page.</p>";
+    }
 
-  if (statusMessage) {
-    statusMessage.textContent =
-      "Follow Egypt By Mosta on Facebook for the latest updates.";
-  }
+    if (statusMessage) {
+      statusMessage.textContent =
+        "Follow Egypt By Mosta on Facebook for the latest updates.";
+    }
 
-  console.error("Error loading Egypt By Mosta stories:", error);
-}
+    console.error("Error loading Egypt By Mosta stories:", error);
   }
 }
 
 if (photosContainer) {
   loadPhotos();
 }
-
-const loadMoreButton = document.getElementById("load-more");
-
-if (loadMoreButton) {
-  loadMoreButton.addEventListener("click", loadMorePhotos);
-}
-
-// Image Lightbox
-let lightboxIndex = 0;
-
-const lightbox = document.createElement("div");
-lightbox.id = "image-lightbox";
-
 lightbox.innerHTML = `
   <button class="lightbox-close" aria-label="Close">&times;</button>
   <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
