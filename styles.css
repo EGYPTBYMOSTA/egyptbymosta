@@ -1680,3 +1680,34 @@ body > footer {
     box-sizing: border-box;
   }
 }
+
+/* Travel Page - Destination Images Fix */
+
+.pillars-grid .pillar-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 210px !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  margin: 0 0 18px !important;
+  border-radius: 8px 8px 0 0;
+}
+
+.pillars-grid .pillar-card {
+  height: auto !important;
+  padding: 0 0 22px !important;
+}
+
+.pillars-grid .pillar-card h3,
+.pillars-grid .pillar-card p,
+.pillars-grid .pillar-card .pillar-icon {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+@media (max-width: 550px) {
+  .pillars-grid .pillar-card img {
+    height: 220px !important;
+  }
+}
