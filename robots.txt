@@ -1,1 +1,6 @@
 
+User-agent: *
+Allow: /
+
+Sitemap: https://egyptbymosta.pages.dev/sitemap.xml
+
