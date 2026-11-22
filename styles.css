@@ -1287,3 +1287,24 @@ body > footer {
     height: 210px;
   }
 }
+
+/* Fix EgyptByMosta card images */
+.pillars-grid .pillar-card {
+  display: block !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.pillars-grid .pillar-image {
+  display: block !important;
+  width: 100% !important;
+  height: 210px !important;
+  object-fit: cover !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.pillars-grid .pillar-content {
+  display: block !important;
+  padding: 22px 18px 25px !important;
+}
