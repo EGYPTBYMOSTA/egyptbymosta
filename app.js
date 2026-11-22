@@ -13,11 +13,12 @@ if (year) {
 let allPhotos = [];
 let currentIndex = 0;
 let displayedCount = 0;
+let lightboxIndex = 0;
 
 const PAGE_SIZE = 9;
 
 function renderPhoto(photo) {
-  if (!photo.image_url) return;
+  if (!photo.image_url || !photosContainer) return;
 
   const card = document.createElement("article");
   card.className = "photo-card";
@@ -39,6 +40,8 @@ function renderPhoto(photo) {
 }
 
 function renderPhotos(photos) {
+  if (!photosContainer) return;
+
   photosContainer.innerHTML = "";
   photos.forEach(renderPhoto);
 }
@@ -60,6 +63,8 @@ function updateHomePhotos() {
 }
 
 function loadMorePhotos() {
+  if (!photosContainer) return;
+
   const nextPhotos = allPhotos.slice(
     displayedCount,
     displayedCount + PAGE_SIZE
@@ -106,14 +111,17 @@ async function loadPhotos() {
     }
 
     if (!allPhotos.length) {
-  if (photosContainer) {
-    photosContainer.innerHTML = "<p>No photos available yet.</p>";
-  }
-  return;
-}
+      if (photosContainer) {
+        photosContainer.innerHTML = "<p>No photos available yet.</p>";
+      }
+      return;
+    }
 
     if (isStoriesPage) {
-      photosContainer.innerHTML = "";
+      if (photosContainer) {
+        photosContainer.innerHTML = "";
+      }
+
       displayedCount = 0;
       loadMorePhotos();
 
@@ -130,11 +138,7 @@ async function loadPhotos() {
       }
     }
 
-} catch (error) {
-  if (photosContainer) {
-    photosContainer.innerHTML =
-      "<p>Stories are temporarily unavailable. Please visit our Facebook page.</p>";
-    } catch (error) {
+  } catch (error) {
     if (photosContainer) {
       photosContainer.innerHTML =
         "<p>Stories are temporarily unavailable. Please visit our Facebook page.</p>";
@@ -149,9 +153,22 @@ async function loadPhotos() {
   }
 }
 
+// Load stories
 if (photosContainer) {
   loadPhotos();
 }
+
+// Load More button
+const loadMoreButton = document.getElementById("load-more");
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener("click", loadMorePhotos);
+}
+
+// Image Lightbox
+const lightbox = document.createElement("div");
+lightbox.id = "image-lightbox";
+
 lightbox.innerHTML = `
   <button class="lightbox-close" aria-label="Close">&times;</button>
   <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
@@ -200,16 +217,18 @@ function changeLightbox(direction) {
   showLightbox(lightboxIndex + direction);
 }
 
-photosContainer?.addEventListener("click", (event) => {
-  const clickedImage = event.target.closest(".photo-card img");
-  if (!clickedImage) return;
+if (photosContainer) {
+  photosContainer.addEventListener("click", (event) => {
+    const clickedImage = event.target.closest(".photo-card img");
+    if (!clickedImage) return;
 
-  const index = allPhotos.findIndex(photo =>
-    clickedImage.src.startsWith(photo.image_url)
-  );
+    const index = allPhotos.findIndex(photo =>
+      clickedImage.src.startsWith(photo.image_url)
+    );
 
-  if (index !== -1) showLightbox(index);
-});
+    if (index !== -1) showLightbox(index);
+  });
+}
 
 lightbox.querySelector(".lightbox-close").onclick = closeLightbox;
 lightbox.querySelector(".lightbox-prev").onclick = () => changeLightbox(-1);
