@@ -1596,3 +1596,87 @@ body > footer {
     height: 190px;
   }
 }
+
+/* EgyptByMosta - Contact Section Design */
+
+.contact.section {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 70px 35px;
+  text-align: center;
+  background: rgba(9, 9, 9, 0.78);
+  border: 1px solid rgba(212, 175, 99, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+.contact .eyebrow {
+  color: #D4AF63;
+  letter-spacing: 3px;
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+.contact h2 {
+  color: #F5F0E7;
+  font-size: clamp(30px, 4vw, 44px);
+  margin-bottom: 20px;
+}
+
+.contact h2 span {
+  color: #D4AF63;
+}
+
+.contact > p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  color: #E5DED1;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contact-actions .gold-button {
+  display: inline-block;
+  padding: 15px 28px;
+  text-decoration: none;
+}
+
+.contact-secondary {
+  display: inline-block;
+  padding: 14px 25px;
+  color: #D4AF63;
+  border: 1px solid #D4AF63;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-secondary:hover {
+  background: #D4AF63;
+  color: #090909;
+}
+
+@media (max-width: 600px) {
+  .contact.section {
+    margin: 45px 15px;
+    padding: 45px 20px;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-actions a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
