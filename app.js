@@ -84,7 +84,7 @@ async function loadPhotos() {
     }
 
     const data = await response.json();
-    allPhotos = data.photos || [];
+    allPhotos = Array.isArray(data.photos) ? data.photos : [];
 
     const collage = document.getElementById("hero-collage");
 
