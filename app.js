@@ -138,16 +138,17 @@ async function loadPhotos() {
       }
     }
 
-  } catch (error) {
+    } catch (error) {
     if (photosContainer) {
-      photosContainer.innerHTML =
-        "<p>Stories are temporarily unavailable. Please visit our Facebook page.</p>";
+      console.error("Error loading Egypt By Mosta stories:", error);
     }
 
     if (statusMessage) {
       statusMessage.textContent =
         "Follow Egypt By Mosta on Facebook for the latest updates.";
     }
+  }
+}
 
     console.error("Error loading Egypt By Mosta stories:", error);
   }
