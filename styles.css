@@ -184,7 +184,12 @@ nav a:hover {
   color: var(--gold);
   font-size: 65px;
 }
-
+.fallback-story-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .fallback-story .eyebrow {
   color: var(--gold);
   padding: 15px 15px 0;
