@@ -138,6 +138,7 @@ nav a:hover {
   background: #101010;
 }
 
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -146,31 +147,62 @@ nav a:hover {
   text-align: left;
 }
 
-.photo-card {
+.photo-card,
+.fallback-story {
   overflow: hidden;
   background: var(--surface);
   border: 1px solid #28231b;
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.photo-card:hover,
+.fallback-story:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
 }
 
 .photo-card img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: none;
-  object-fit: unset;
+  height: 230px;
+  object-fit: cover;
   object-position: center;
-}
+  transition: transform 0.4s ease;
 }
 
 .photo-card:hover img {
   transform: scale(1.04);
 }
 
+.fallback-story-image {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #302313, #100e0a);
+  color: var(--gold);
+  font-size: 65px;
+}
+
+.fallback-story .eyebrow {
+  color: var(--gold);
+  padding: 15px 15px 0;
+  font-size: 11px;
+}
+
+.fallback-story h3 {
+  color: #f5f0e7;
+  padding: 5px 15px;
+  font-size: 20px;
+}
+
+.fallback-story > p:last-child,
 .photo-card p {
   padding: 15px;
   color: #d0c9bd;
   font-size: 14px;
+  line-height: 1.7;
 }
 
 .loading,
@@ -178,9 +210,21 @@ nav a:hover {
   color: var(--muted);
 }
 
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .fallback-story-image {
+    height: 190px;
+  }
+}
+
 .contact {
   background: radial-gradient(ellipse at center, #211a10, #090909 70%);
 }
+
 
 footer {
   padding: 25px 8%;
