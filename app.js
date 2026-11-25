@@ -3,7 +3,7 @@ const FEED_URL = "https://flat-violet-3772egypt-by-mosta-photos.mostaa-hassan.wo
 
 const photosContainer = document.getElementById("photos");
 const statusMessage = document.getElementById("feed-status");
-const isStoriesPage = document.body.dataset.page === "stories";
+const isStoriesPage = false;
 
 const year = document.getElementById("year");
 if (year) {
