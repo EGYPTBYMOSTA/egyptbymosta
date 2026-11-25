@@ -1763,10 +1763,22 @@ body > footer {
 /* Travel Destinations Grid Fix */
 
 .travel-destinations {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 25px !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .travel-destinations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .travel-destinations {
+    grid-template-columns: 1fr;
+  }
 }
 
 .travel-destinations .pillar-card {
