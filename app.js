@@ -138,10 +138,8 @@ async function loadPhotos() {
       }
     }
 
-    } catch (error) {
-    if (photosContainer) {
-      console.error("Error loading Egypt By Mosta stories:", error);
-    }
+     } catch (error) {
+    console.error("Error loading Egypt By Mosta stories:", error);
 
     if (statusMessage) {
       statusMessage.textContent =
@@ -149,12 +147,6 @@ async function loadPhotos() {
     }
   }
 }
-
-    console.error("Error loading Egypt By Mosta stories:", error);
-  }
-}
-
-// Load stories
 if (photosContainer) {
   loadPhotos();
 }
