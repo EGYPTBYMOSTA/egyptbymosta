@@ -151,13 +151,6 @@ if (photosContainer) {
   loadPhotos();
 }
 
-// Load More button
-const loadMoreButton = document.getElementById("load-more");
-
-if (loadMoreButton) {
-  loadMoreButton.addEventListener("click", loadMorePhotos);
-}
-
 // Image Lightbox
 const lightbox = document.createElement("div");
 lightbox.id = "image-lightbox";
